@@ -1,8 +1,12 @@
 import { type NextRequest } from "next/server";
 
-export async function POST(request: NextRequest) {
-  const body = await request.json();
-  return Response.json(getCone(body.height, body.radius, body.triangleCount));
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const height = Number(searchParams.get("height"));
+  const radius = Number(searchParams.get("radius"));
+  const triangleCount = Number(searchParams.get("triangleCount"));
+
+  return Response.json(getCone(height, radius, triangleCount));
 }
 
 function getCone(height: number, radius: number, triangleCount: number) {

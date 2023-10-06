@@ -13,13 +13,16 @@ export default function App() {
   const [data, setData] = useState([]);
 
   async function onSubmit() {
-    const response = await fetch("/api/cone", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ height, radius, triangleCount }),
-    });
+    const response = await fetch(
+      `/api/cone/?height=${height}&radius=${radius}&triangleCount=${triangleCount}`,
+      {
+        method: "GET",
+        cache: "force-cache",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     setData(await response.json());
   }
 
