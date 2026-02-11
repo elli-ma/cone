@@ -1,28 +1,24 @@
 # Cone Generator — 3D Parametric Cone
 
-Интерактивный генератор 3D-конуса с параметрическим управлением. Геометрия рассчитывается на сервере через API и рендерится на клиенте в Three.js.
+Interactive 3D cone generator with parametric controls. Geometry is computed server-side via an API route and rendered on the client with Three.js.
 
-## Демо
+## Features
 
-Пользователь задаёт параметры конуса через форму, и конус перестраивается в реальном времени с анимацией вращения.
+- **Server-side geometry generation** — vertices are calculated in a Next.js API Route, not on the client
+- **Raw BufferGeometry** — built from a flat Float32Array without using Three.js built-in ConeGeometry
+- **React Three Fiber** — declarative 3D scene composition within React components
+- **Wireframe rendering** — white wireframe on gray background with a technical aesthetic
+- **Rotation animation** — smooth continuous rotation via useFrame
 
-## Особенности
+## Parameters
 
-- **Серверная генерация геометрии** — вершины рассчитываются в Next.js API Route, а не на клиенте
-- **Ручной BufferGeometry** — геометрия строится из сырого Float32Array без использования встроенного ConeGeometry
-- **React Three Fiber** — декларативное описание 3D-сцены в React-компонентах
-- **Wireframe-рендеринг** — белый каркас на сером фоне в техническом стиле
-- **Анимация вращения** — конус плавно вращается через useFrame
+| Parameter | Default | Description |
+|-----------|---------|-------------|
+| Height | 1 | Cone height |
+| Radius | 1 | Base radius |
+| Segments | 32 | Number of segments |
 
-## Параметры
-
-| Параметр | По умолчанию | Описание |
-|----------|-------------|----------|
-| Height | 1 | Высота конуса |
-| Radius | 1 | Радиус основания |
-| Segments | 32 | Количество сегментов |
-
-## Стек
+## Tech Stack
 
 - **Next.js 13** (App Router)
 - **React Three Fiber** + **Three.js**
